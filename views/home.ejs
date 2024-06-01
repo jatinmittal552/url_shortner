@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Database</title>
+    <style>
+
+        /* *{
+            margin: 0;
+        } */
+
+        td{
+            border: 2px solid black;
+            font-size: large;
+            padding: 10px 10px;
+        }
+        tr:hover:nth-of-type(odd){
+            border:3px solid blue;
+            background-color: yellow;
+        }
+        .check{
+            width:100%;
+            height:max-content;
+            border-collapse: collapse;
+            text-align: center;
+            /* margin: 20px 20px; */
+        }
+        thead{
+            font-weight: bolder;
+            background-color: aqua;
+        }
+
+        @media(max-width:400px){
+            thead{
+                display: none;
+            }
+            tbody{
+                display: block;
+                width: 100%;
+            }
+            td::before {
+                content: attr(data-label);
+                position: absolute;
+                left: 0;
+                width: 50%;
+                padding-left: 15px;
+                font-weight: bold;
+                text-align: left;
+         }
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Database</h1>
+    <table class="check">
+        <thead>
+            <tr>
+                <td>S.no</td>
+                <td>ShortId</td>
+                <td>URL</td>
+                <td>No. of visits</td>
+            </tr>
+        </thead>
+        <tbody>
+            <% u.forEach((url,index) => { %>
+                <tr>
+                    <td><%= index+1 %></td>
+                    <td><%= url.shortId %></td>
+                    <td><%= url.url %></td>
+                    <td><%= url.visitHistory.length %></td>
+                </tr>
+            <% }) %>
+        </tbody>
+    </table>
+</body>
+</html>

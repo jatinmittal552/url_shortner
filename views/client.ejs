@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shortner</title>
+    <style>
+        label{
+            font-weight: bolder;
+            font-size: x-large;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-stretch:ultra-expanded;
+        }
+
+        input{
+            font-size: larger;
+            padding: 5px 5px;
+        }
+    </style>
+    
+</head>
+<body>
+    <h1>Url Shortner Service</h1>
+    <% if(locals.id){%>
+        <script>
+            window.location.href='/'
+        </script>
+    
+    <% } %>
+    <form action="/url" method="post">
+        <label for="url">Enter your URL :  </label>
+        <input type="url" name="url" placeholder="www.example.com" required>
+        <input type="submit">
+    </form>
+    
+</body>
+</html>
